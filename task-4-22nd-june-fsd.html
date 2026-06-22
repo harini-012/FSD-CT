@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IPL Points Table</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+body 
+{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+.container
+{
+width:90%;
+max-width:1000px;
+}
+h1 
+{
+text-align:center;
+color:white;
+margin-bottom:20px;
+text-transform:uppercase;
+letter-spacing:2px;
+}
+table 
+{
+width:100%;
+border-collapse:collapse;
+background:white;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+thread 
+{
+background:linear-gradient(to right,#ff6b00,#ff9800);
+color:white;
+}
+th,td 
+{
+padding:15px;
+text-align:center;
+}
+tbody tr:nth-child(even)
+{
+background:#f4f4f4;
+}
+tbody tr:hover
+{
+background:#dbeafe;
+transform:scale(1.01);
+transition:0.3s;
+cursor:pointer;
+}
+.qualified 
+{
+color:green;
+font-weight:bold;
+}
+.eliminated 
+{
+color:red;
+font-weight:bold;
+}
+@media(max-width:768px)
+{
+th,td{
+padding:10px;
+font-size:12px;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🏏 IPL Points Table 2025</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Matches</th>
+            <th>Won</th>
+            <th>Lost</th>
+            <th>Points</th>
+            <th>NRR</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>RCB</td>
+            <td>14</td>
+            <td>10</td>
+            <td>4</td>
+            <td>20</td>
+            <td>+0.85</td>
+            <td class="qualified">Qualified</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>MI</td>
+            <td>14</td>
+            <td>9</td>
+            <td>5</td>
+            <td>18</td>
+            <td>+0.62</td>
+            <td class="qualified">Qualified</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>GT</td>
+            <td>14</td>
+            <td>8</td>
+            <td>6</td>
+            <td>16</td>
+            <td>+0.45</td>
+            <td class="qualified">Qualified</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>PBKS</td>
+            <td>14</td>
+            <td>8</td>
+            <td>6</td>
+            <td>16</td>
+            <td>+0.20</td>
+            <td class="qualified">Qualified</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>CSK</td>
+            <td>14</td>
+            <td>7</td>
+            <td>7</td>
+            <td>14</td>
+            <td>-0.10</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td>KKR</td>
+            <td>14</td>
+            <td>6</td>
+            <td>8</td>
+            <td>12</td>
+            <td>-0.35</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>SRH</td>
+            <td>14</td>
+            <td>5</td>
+            <td>9</td>
+            <td>10</td>
+            <td>-0.50</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+
+        <tr>
+            <td>8</td>
+            <td>DC</td>
+            <td>14</td>
+            <td>5</td>
+            <td>9</td>
+            <td>10</td>
+            <td>-0.70</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+
+        <tr>
+            <td>9</td>
+            <td>RR</td>
+            <td>14</td>
+            <td>4</td>
+            <td>10</td>
+            <td>8</td>
+            <td>-0.95</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+
+        <tr>
+            <td>10</td>
+            <td>LSG</td>
+            <td>14</td>
+            <td>3</td>
+            <td>11</td>
+            <td>6</td>
+            <td>-1.20</td>
+            <td class="eliminated">Eliminated</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>
