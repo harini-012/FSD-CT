@@ -1,0 +1,51 @@
+.season-container 
+{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:20px;
+	margin-bottom:30px;
+}
+.season 
+{
+	width:380px;
+	padding:20px;
+	border-radius:15px;
+	color:white;
+	text-align:center;
+	box-shadow:0px 5px 15px rgba(0,0,0,0.3);
+	transition:0.4s;
+}
+.season-img{
+    width: 100%;
+    height: 250px;         /* Large image */
+    object-fit: cover;     /* Prevents stretching */
+    display: block;
+}
+.season:hover
+{
+	transform:scale(1.05);
+}
+.spring
+{
+	background:linear-gradient(to right,#4CAF50,#8BC34A);
+}
+.summer 
+{
+	background:linear-gradient(to right,#ff6b00,#ff3300);
+}
+.monsoon
+{
+	background:linear-gradient(to right,#0077b6,#023e8a);
+}
+.autumn
+{
+	background:linear-gradient(to right,#FFB74D,#8D6E63);
+}
+.prewinter
+{
+	 background:linear-gradient(to right,#9C27B0,#673AB7);
+}
+.winter{
+    background:linear-gradient(to right,#90CAF9,#1565C0);
+}
