@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mouse Events</title>
+	
+		<style>
+			body
+			{
+				font-family:Arial;
+				text-align:center;
+				margin-top:50px;
+				background-color:#FFB6C1;
+				
+			}
+			#div1
+			{
+				width:100px;
+				height:50px;
+				background-color:beige;
+				margin:auto;
+				border:10px solid pink;
+				font-size:18px;
+				transition:0.3s;
+				
+			}
+			#output
+			{
+				margin-top:20px;
+				font-weight:bold;
+				font-size:30px;
+			}
+			
+				
+		</style>
+	</head>
+	<body>
+		<h1 style="color:red">Mouse Events </h2>
+		<div id="div1">Hover / Click Me!!!</div>
+		<p id="output">Event Output: None</p>
+		<input type="text" id="text1" placeholder="Type here...">
+		<div id="div2">Key</div>
+	<script>
+		let d1=document.getElementById('div1');
+		let p1=document.getElementById('output');
+		d1.onclick=function()
+		{
+			p1.innerText="Event-->Mouse Clicked!!!";
+		};
+		d1.ondblclick=function()
+		{
+			p1.innerText="Event-->Again Clicked!!!";
+		};
+		d1.onmousedown=function()
+		{
+			p1.innerText="Mouse is pressed!!!";
+		};
+		d1.onmouseup=function()
+		{
+			p1.innerText="Mouse is released!!!";
+		};
+		d1.onmousemove=function()
+		{
+			p1.innerText="Mouse is moving (X:"+event.clientX+"Y"+event.clientY+")";
+			
+		};
+		d1.onmouseenter=function()
+		{
+			d1.style.backgroundColor="yellow";
+		};
+		let d2=document.getElementById("div2");
+		
+		let input1=document.getElementById("text1");
+		input1.addEventListener("keydown",function(event)
+		{
+			p1.innerText="key down:"+event.key;
+			d2.innerText=event.key;
+		});
+		input1.addEventListener("keyup",function(event)
+		{
+			p1.innerText="key up:"+event.key;
+			d2.innerText=event.key;
+		});
+		
+		
+	</script>
+	</body>
+	
+</html>
