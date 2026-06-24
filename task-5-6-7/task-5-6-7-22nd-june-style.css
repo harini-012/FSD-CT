@@ -1,3 +1,11 @@
+/*
+<!--
+TASK 5,6,7
+5. Apply inline CSS to change the text color and font size		
+6. Use internal CSS to set background color for a web page		
+7. Create an external CSS file and link it to an HTML document	
+-->
+*/
 .season-container 
 {
 	display:flex;
