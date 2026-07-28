@@ -1,0 +1,43 @@
+body 
+{
+    font-family:Arial;
+    background:linear-gradient(to bottom, #d4f7d4, #f0fff0);
+    color:white;
+}
+button
+{
+    width:100%;
+    padding:10px;
+    background-color:#4CAF50;
+    border:orangered;
+    cursor:pointer;
+}
+button:hover
+{
+    background-color:#a04559;
+}
+span
+{
+    color:rgb(0, 255, 247);
+    font-family:'Times New Roman', Times, serif;
+    font-size:20;
+
+}
+.logincontainer
+{
+    width:300px;
+    padding:20px;
+    background-color:rgb(32, 99, 102);
+    border-radius:10px;
+    margin:100px;
+    
+
+}
+input
+{
+    width:100%;
+    padding:10px;
+    margin:5px 0 10px 0;
+    border:none;
+    background-color:#f1f1f1;
+}

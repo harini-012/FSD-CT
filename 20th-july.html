@@ -1,0 +1,143 @@
+    <!--
+    <!DOCTYPE html>
+    <html>
+        <head><title>Javascript</title></head>
+        <body>
+            <h2 id="h1">Javascript Functions</h2>
+            <button onclick="alert('Hiiiii!!!!1')">Click Me to say hi</button><br><br>
+            <button onclick="displayMessage()">Click me to change</button><br><br>
+            <button ondblclick="displayMessage1()">Double Click</button><br><br>
+            <button onmousedown="displayMessage2()">Mouse Down</button><br><br>
+            <button onmouseup="displayMessage3()">Mouse Up</button><br><br>
+            <button onmouseover="displayMessage4()" onmouseout="backtoForm()">Mouse over-out</button><br><br>
+            <button onmousemove="count()">Count of mouse move</button><br><br>
+            <button oncontextmenu="rightClick()">Right Click </button><br></br>
+            <input type="password"  placeholder="Enter the password" onfocus="focusMessage()" onblur="hideMessage()">
+            <p id="p1"></p>
+
+            
+            
+            <script>
+                document.write("This is a javascript example")
+                console.log("Console Output")
+                function displayMessage()
+                {
+                    document.getElementById("h1").innerHTML="Displayed the function correctly"
+                }
+                function displayMessage1()
+                {
+                    document.getElementById("h1").innerHTML="Double click executed correctly"
+                }
+                function displayMessage2()
+                {
+                    document.getElementById("h1").innerHTML="Mouse Down executed sucessfully"
+                }
+                function displayMessage3()
+                {
+                    document.getElementById("h1").innerHTML="Mouse UP executed sucessfully"
+                }
+                function displayMessage4()
+                {
+                    document.body.style.backgroundColor="aqua";
+                }
+                function backtoForm()
+                {
+                    document.body.style.backgroundColor="white";
+                }
+                let counter=0;
+                function count()
+                {
+                    counter++;
+                    document.getElementById("h1").innerHTML="Count:"+counter;
+                } 
+                function rightClick()
+                {
+                event.preventDefault();
+                    alert("You cant right-clicked!!!");
+                }  
+                function focusMessage()
+                {
+                    document.getElementById("p1").innerHTML="Password must contain 8 characters";
+                }
+                function hideMessage()
+                {
+                    document.getElementById("p1").innerHTML="";
+                }
+            </script>
+
+        </body>
+    </html>
+
+
+    <!DOCTYPE html>
+    <html>
+        <head><title>EventListener</title></head>
+        <body>
+            <button id="b1">Click me!!</button>
+            <script>
+                let b=document.getElementById("b1")
+                b.addEventListener("click",show);
+                
+                function show()
+                {
+                    alert("Event Listener is added");
+                }
+                b.addEventListener("mouseover",colorChange)
+                function colorChange()
+                {
+                    document.body.style.backgroundColor="yellow";
+                }
+                b.addEventListener("mouseout",colorChange1)
+                function colorChange1() 
+                {
+                    document.body.style.backgroundColor="white";
+                }
+            </script>
+        </body>
+    </html>
+
+    DOM
+    HOW TO SELECT ELEMENTS
+    1.getElementById
+    2.getElementsByClassName
+    3.getElementsByTagName
+    4.querySelector()
+    5.querySelectorAll()
+    -->
+    <!DOCTYPE html>
+    <html>
+        <head><title>EventListener</title></head>
+        <body>
+            <form>
+                Name:
+                <input type="text" placeholder="Enter username" id="name"><br><br>
+                Email:
+                <input type="email" placeholder="Enter email" id="email"><br><br>
+                Gender:
+                <input type="radio" name="gender" >male
+                <input type="radio" name="gender">female<br><br>
+            <button onclick="validate()">Click me</button>
+                
+
+            </form>
+            <p id="p1"></p>
+            <script>
+                function validate()
+                {
+                    
+                    let name=document.getElementById("name").value;
+                    if(name=="")
+                {
+                    document.getElementById("p1").innerHTML="Enter the name";
+                }
+                else 
+                {
+                    document.getElementById("p1").innerHTML="Name submitted successfully";
+                }
+                let email=document.getElementById("email").value;
+                }
+            </script>
+        </body>
+    </html>
+
+

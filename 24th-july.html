@@ -1,0 +1,342 @@
+
+<!--
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<h2>Callback Example</h2>
+ 
+<p id="output"></p>
+ 
+<script>
+ 
+function display(message){
+    document.getElementById("output").innerHTML = message;
+}
+ 
+ 
+function process(callback){
+ 
+    setTimeout(function(){
+ 
+        callback("Task Completed");
+ 
+	},2000);
+ 
+}
+ 
+ 
+process(display);
+ 
+</script>
+ 
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Callback Hell Example</h2>
+
+<p id="output"></p>
+
+<script>
+
+function task1(callback) {
+    setTimeout(function () {
+        document.getElementById("output").innerHTML += "Task 1 Completed<br>";
+        callback();
+    }, 1000);
+}
+
+function task2(callback) {
+    setTimeout(function () {
+        document.getElementById("output").innerHTML += "Task 2 Completed<br>";
+        callback();
+    }, 1000);
+}
+
+function task3(callback) {
+    setTimeout(function () {
+        document.getElementById("output").innerHTML += "Task 3 Completed<br>";
+        callback();
+    }, 1000);
+}
+
+// Callback Hell
+task2(function () {
+    task1(function () {
+        task3(function () {
+            document.getElementById("output").innerHTML += "All Tasks Finished!";
+        });
+    });
+});
+let result = new Promise((resolve,reject)=>{
+ 
+	let orderReady=true;
+ 	
+	if(orderReady)
+        resolve("Food Delivered");
+	else
+        reject("Sorry for the confusions:order cancelled");
+ 
+});
+ 
+ 
+result
+.then(data=>console.log(data))
+.catch(error=>console.log(error))
+.finally(()=>console.log("Process completed successfully"));
+
+
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Food Delivery using Async/Await</h2>
+
+<button onclick="orderFood()">Order Pizza</button>
+
+<p id="output"></p>
+
+
+<script>
+
+// Function to simulate fetching restaurant menu
+function fetchMenu(){
+
+    return new Promise((resolve, reject)=>{
+
+        setTimeout(()=>{
+
+            let restaurantAvailable = true;
+
+            if(restaurantAvailable){
+                resolve(" Pizza is ready and delivered!");
+            }
+            else{
+                reject(" Restaurant is closed");
+            }
+
+        },3000);
+
+    });
+
+}
+
+
+// Async function
+async function orderFood(){
+
+    try{
+
+        document.getElementById("output").innerHTML =
+        "Ordering food... Please wait";
+
+        // Waiting for restaurant response
+        let food = await fetchMenu();
+
+        // Executes after promise is resolved
+        document.getElementById("output").innerHTML =
+        food;
+
+    }
+
+
+    catch(error){
+
+        // Executes if promise is rejected
+        document.getElementById("output").innerHTML =
+        error;
+
+    }
+
+
+    finally{
+
+        console.log("Order process completed");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather App using Fetch API</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background: #f2f2f2;
+        }
+
+        .box {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+<h2>🌦 Weather Application</h2>
+
+
+<input type="text" id="city" placeholder="Enter City Name">
+
+
+<br><br>
+
+
+<button onclick="getWeather()">
+Get Weather
+</button>
+
+
+<div id="output"></div>
+
+
+</div>
+
+
+
+<script>
+
+
+async function getWeather(){
+
+
+    let city = document.getElementById("city").value;
+
+
+    let apiKey = "2d3e87affafe48b986050551262407";
+
+
+    if(city === ""){
+
+        document.getElementById("output").innerHTML =
+        "Please enter city name";
+
+        return;
+
+    }
+
+
+
+    let url =
+    `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
+
+
+    try{
+
+
+        let response = await fetch(url);
+
+
+
+        let data = await response.json();
+
+
+
+        // Check API error
+
+        if(data.error){
+
+            throw new Error(data.error.message);
+
+        }
+
+
+
+        document.getElementById("output").innerHTML =
+
+        `
+        <h3>${data.location.name}, ${data.location.country}</h3>
+
+        🌡 Temperature :
+        ${data.current.temp_c} °C
+
+        <br><br>
+
+        ☁ Condition :
+        ${data.current.condition.text}
+
+        <br><br>
+
+        💧 Humidity :
+        ${data.current.humidity} %
+
+        <br><br>
+
+        🌬 Wind Speed :
+        ${data.current.wind_kph} km/h
+
+        `;
+
+
+    }
+
+
+    catch(error){
+
+
+        document.getElementById("output").innerHTML =
+
+        "❌ Error: " + error.message;
+
+
+    }
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!--
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<h2>JavaScript Error Handling</h2>
+ 
+<p id="output"></p>
+ 
+<script>
+ 
+try {
+ 
+	let result = x + 10;   // x is not defined
+ 
+}
+catch(error){
+ 
+    document.getElementById("output").innerHTML =
+	"Error: " + error.cause;//error.message ,error.name,error.stack,error.cause all can be used
+ 
+}
+ 
+</script>
+ 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<h2>JSON stringify()</h2>
+ 
+<p id="output"></p>
+ 
+<script>
+ 
+let student = {
+    name:"Ram",
+	age:20,
+    course:"AI"
+};
+ 
+ 
+let jsonData = JSON.stringify(student);
+ 
+ 
+document.getElementById("output").innerHTML=jsonData;
+ 
+</script>
+ 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<h2>JSON parse()</h2>
+ 
+<p id="output"></p>
+ 
+<script>
+ 
+let jsonString =
+'{"name":"John","age":25}';
+ 
+ 
+let student = JSON.parse(jsonString);
+ 
+ 
+document.getElementById("output").innerHTML =
+student.name + " " + student.age;
+ 
+</script>
+ 
+</body>
+</html>
+
+JSON with Array Example
+let students = [
+ 
+{
+    name:"Asha",
+	marks:90
+},
+ 
+{
+    name:"Rahul",
+	marks:85
+}
+ 
+];
+ 
+ 
+console.log(JSON.stringify(students));
+
+
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<h2>JSON Example</h2>
+ 
+<button onclick="showData()">Display Student</button>
+ 
+<p id="result"></p>
+ 
+ 
+<script>
+ 
+function showData(){
+ 
+let json =
+'{"name":"Geetha","department":"Computer Science","year":2}';
+ 
+ 
+let student = JSON.parse(json);
+ 
+ 
+document.getElementById("result").innerHTML =
+"Name: "+student.name+
+"<br>Department: "+student.department+
+"<br>Year: "+student.year;
+ 
+}
+ 
+</script>
+ 
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<head>
+    <title>Json Data Transfer</title>
+</head>
+<body>
+    <h2>Json Data Transfer example</h2>
+    <button onclick="sendData()">Send Json Data</button>
+    <p id="p1"></p>
+    <script>
+        function sendData()
+        {
+            let student={
+            id:1,
+            name:"Harini", 
+            dept:"computer science with ai",
+
+
+            };
+            let jsonString=JSON.stringify(student);
+            document.getElementById("p1").innerHTML="<b>JSON Data</b><br><br>"+jsonString+"<br><br>";
+            //convert to object
+            
+            let serverResponse='{"status":"Success","message":"data received"}';
+            let responseObject=JSON.parse(serverResponse);
+            document.getElementById("p1").innerHTML+="<b>Server Response:"+"Status:"+responseObject.status+"<br>"+"Message:"+responseObject.message;
+
+        }
+    </script>
+</body>

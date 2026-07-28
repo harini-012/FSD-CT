@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>JSON API Data Transfer</title>
+
+</head>
+
+
+<body>
+
+
+<h2>Student Details</h2>
+
+
+<button onclick="getStudents()">
+Get Students
+</button>
+
+
+<h3>Add Student</h3>
+
+
+Name:
+
+<input type="text" id="name">
+<br><br>
+
+
+Department:
+
+<input type="text" id="dept">
+<br><br>
+
+
+Mark:
+
+<input type="number" id="mark">
+<br><br>
+
+
+<button onclick="addStudent()">
+Add Student
+</button>
+
+
+
+<p id="output"></p>
+
+
+
+<script>
+
+
+// GET JSON DATA FROM API
+
+function getStudents(){
+
+
+fetch("http://localhost:3000/students")
+
+
+.then(response => response.json())
+
+
+.then(data=>{
+
+
+let result="";
+
+
+data.forEach(student=>{
+
+
+result +=
+
+"ID : " + student.id +
+"<br>" +
+
+"Name : " + student.name +
+"<br>" +
+
+"Department : " + student.department +
+"<br>" +
+
+"Mark : " + student.mark +
+
+"<hr>";
+
+
+});
+
+
+document.getElementById("output").innerHTML=result;
+
+
+})
+
+.catch(error=>{
+
+
+document.getElementById("output").innerHTML =
+"Error : "+error;
+
+
+});
+
+
+}
+
+
+
+
+// SEND JSON DATA TO API
+
+function addStudent(){
+
+
+
+let student = {
+
+
+name: document.getElementById("name").value,
+
+
+department: document.getElementById("dept").value,
+
+
+mark: document.getElementById("mark").value
+
+
+};
+
+
+
+
+// Convert Object into JSON
+
+fetch("http://localhost:3000/students",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+
+},
+
+
+body:JSON.stringify(student)
+
+
+})
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+document.getElementById("output").innerHTML =
+
+data.message +
+
+"<br>Added Student : " +
+
+data.student.name;
+
+
+})
+
+
+
+.catch(error=>{
+
+
+console.log(error);
+
+
+});
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

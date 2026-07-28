@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>
+            Student Management System</title>
+            
+        </title>
+    </head>
+    <body>
+        <input type="text" id="sid" placeholder="Enter the id">
+        <input type="text" id="name" placeholder="Enter the name">
+        
+        <input type="text" id="marks" placeholder="Enter the marks">
+        
+        <button onclick="displayStudents()">Display</button>
+        <button onclick="pushStudents()">Push</button>
+        <button onclick="removeLast()">Remove Last</button>
+        <button onclick="removeFirst()">Remove First</button>
+        <button onclick="addFirst()">Add Student at first</button>
+        <button onclick="modifyStudent()">Modify Student</button>
+        <button onclick="upperCase()">Upper Case Student</button>
+        <button onclick="totalMarks()">Total Marks</button>
+        <button onclick="findStudent()">Find Student</button>
+        <button onclick="filterStudents()">Filters Student</button>
+
+
+
+        
+        <div id="div1"></div>
+
+        <script>
+            let students=[{"id":100,"name":"Harini","marks":90},{"id":101,"name":"Tejaswini","marks":80},{"id":102,"name":"Anika","marks":80},{"id":104,"name":"Tharini","marks":69}];
+            function displayStudents()
+            {
+                let result="<h3>Student List </h3>";
+                for (let s of students)
+            {
+                result+="ID:"+s.id+"<br>";
+                result+="Name:"+s.name+"<br>";
+                result+="Marks:"+s.marks+"<br>";
+
+
+            }
+            document.getElementById("div1").style.backgroundColor="pink";
+
+            document.getElementById("div1").innerHTML=result;
+            }
+            function pushStudents()
+            {
+                let id=document.getElementById("sid").value;
+                let marks=document.getElementById("marks").value;
+                let name=document.getElementById("name").value;
+                students.push({id:Number(id),name:name,marks:Number(marks)});
+            }
+           function removeLast()
+           {
+            let removed=students.pop();
+            document.getElementById("div1").innerHTML="<h3>Removed Last Student:</h3>"+removed.id;
+           }
+           function removeFirst()
+           {
+            let removed=students.shift();
+            document.getElementById("div1").innerHTML="<h3>Removed First Student:</h3>"+removed.id;
+
+           }
+           function addFirst()
+           {
+                let id=document.getElementById("sid").value;
+                let marks=document.getElementById("marks").value;
+                let name=document.getElementById("name").value;
+                students.unshift({id:Number(id),name:name,marks:Number(marks)});
+           }
+
+           function modifyStudent()
+           {
+             let id=document.getElementById("sid").value;
+                let marks=document.getElementById("marks").value;
+                let name=document.getElementById("name").value;
+            students.splice(2,1,{id:Number(id),name:name,marks:Number(marks)});
+            displayStudent();          
+        }
+        function upperCase()
+        {
+            let names=students.map(function(s)
+        {
+            return s.name.toUpperCase();
+        });
+        
+        document.getElementById("div1").innerHTM=addFirst="<h2>COnverted String: </h2>"+names.join("<br>");
+    }
+    function filterStudents()
+    {
+        let topper=students.filter(function(s)
+    {
+        return s.marks>=80;
+    });
+    let result="<h3>Students with marks>=80</h3>";
+    topper.forEach(function(s)
+{
+    result+=s.name+"-"+s.marks+"<br>";
+});
+document.getElementById("div1").innerHTML=result;
+    }
+    function findStudent()
+    {
+        let student=students.find(function(s)
+    {
+        return s.id==103;
+    });
+    if(student)
+    {
+        document.getElementById("div1").innerHTML="<h3>Student Found</h3>"+student.name+"<br>Marks:"+student.marks;
+    }
+    else 
+    {
+        document.getElementById("div1").innerHTML="Student Not found";
+    }
+    }
+    function totalMarks()
+    {
+        let total=students.reduce(function(sum,s)
+        {
+            return sum+s.marks;
+        }
+        ,0);
+        document.getElementById("div1").innerHTML="<h3>Total Marks</h3>"+total;
+    
+    }
+    
+
+        </script>
+    </body>
+</html>

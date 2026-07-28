@@ -1,0 +1,16 @@
+<html>
+<body>
+<h2 id="head">Title</h2>
+<p id="head2"><b><i>Title2</i></b></p>
+<p id="p1">Inner Text</p>
+<button onclick="changeText()">Click me</button>
+<script>
+    document.getElementById("head").innerHTML = "Hello World";
+    let text=document.getElementById("head2").innerText;
+    console.log(text);
+    function changeText(){
+        document.getElementById("p1").innerText="Text Changed";
+    }
+</script>
+</body>
+</html>
