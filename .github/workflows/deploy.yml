@@ -28,11 +28,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: ./cc-id-demo
+        working-directory: ./23rd-sept
         run: npm ci
 
       - name: Build React project
-        working-directory: ./cc-id-demo
+        working-directory: ./23rd-sept
         run: npm run build
 
       - name: Setup GitHub Pages
@@ -41,7 +41,7 @@ jobs:
       - name: Upload build files
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./cc-id-demo/dist
+          path: ./23rd-sept/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
