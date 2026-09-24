@@ -19,9 +19,9 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: "./23rd sept"
+        working-directory: "23rd-sept"
         run: npm install
 
       - name: Build project
-        working-directory: "./23rd sept"
+        working-directory: "23rd-sept"
         run: npm run build
