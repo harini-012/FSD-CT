@@ -1,0 +1,20 @@
+{
+  "name": "College Notice App",
+  "short_name": "College Notice",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "icons": [
+    {
+      "src": "icon-1.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-2.png",
+      "sizes": "154x154",
+      "type": "image/png"
+    }
+  ]
+}
